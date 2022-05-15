@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<head>
+  <title>MARKS</title>
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href="{% url 'jb' %}">HOME</a>
+    <a class="active" href="{% url 'sub' %} "style="float: right">SUBJECT</a>
+
+</div>
+  <style>
+    .topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+.topnav a {
+  left:50 px;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+body {
+  margin: 0;
+}
+table{
+border-collapse: 
+collapse; border-spacing: 0; 
+border-color: #000000 ;
+border-width: 2px;
+height:100px;
+}
+td, th {  
+    height: 30px; 
+    border-width: 2px;
+}
+td {  
+    text-align: center;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+dropdown-btn:hover {
+  color: #f1f1f1;
+}
+ .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+</style>
+  <center>
+
+    <form method="POST" action="/marks/">
+      {% csrf_token %}
+      <br>
+   <table border="1">
+    <tr>
+      <th>Roll No</th>
+      <th><input type="text"placeholder="Enter Roll Number"name="roll_no"></td>
+    </tr>
+    <tr>
+      <th>Batch</th>
+      <th><input type="text"placeholder="Enter Batch"name="batch"></td>
+    </tr>
+    <tr>
+      <th>Semester</th>
+      <th><input type="text"placeholder="Enter Semester"name="sem"></td>
+    </tr>
+    <tr>
+      <th>Enrollment Number</th>
+      <th><input type="text"name="Enrollment Number" value="{{d}}"></th>
+    </tr>
+    <tr>
+      <th>Course Number</th>
+      <th><input type="text" placeholder="Enter course number" name="course_no"></th>
+    </tr>
+    <tr>
+      <th>Credits</th>
+      <th><input type="Number" placeholder="Enter Credits" name="credit_total"></th>
+    </tr>
+    <tr>
+      <th>Mid Term</th>
+      <th><input type="text" placeholder="Enter Marks" name="midterm_marks" min="0" max="20"></th>
+    </tr>
+    <tr>
+      <th>Theory</th>
+      <th><input type="text" placeholder="Enter Marks" name="theory_marks"></th>
+    </tr>
+    <tr>
+      <th>Practical</th>
+      <th><input type="text" placeholder="Enter Marks" name="practical_marks"></th>
+    </tr>
+  <!--  <tr>
+      <th>Grade Point</th>
+      <th><input type="text" placeholder="Enter Department" name="grade_point"></th>
+    </tr>-->
+    
+    <tr>
+  <td><input type="submit" value="Add"/> </td>
+  <td>   {% if messages %}
+       {% for messg in messages %}
+       <b style="color:green;">{{messg}}</b>
+       {% endfor %}
+       {% endif %}</td>
+ </tr>
+    </tr>
+  </table>
+</form>
+<br>
+</center>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <button class="dropdown-btn">SEM 1 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">BS111</a>
+    <a href="#">ME-113</a>
+    <a href="#">ME-114</a>
+    <a href="#">CE-115</a>
+    <a href="#">BS-100C</a>
+    <a href="#">BS-100E</a>
+    <a href="#">EC-100</a>
+    <a href="#">CS-100</a>
+</div>
+  
+<button class="dropdown-btn">SEM 2 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">BS-121</a>
+    <a href="#">BS-100P</a>
+    <a href="#">CE-100</a>
+    <a href="#">CE-122</a>
+    <a href="#">ME-123</a>
+    <a href="#">ME-124</a>
+    <a href="#">EE-100</a>
+    <a href="#">REE-100</a>
+</div>
+<button class="dropdown-btn">SEM 3 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">BS - 221</a>
+    <a href="#">EE-212</a>
+    <a href="#">EC-219</a>
+    <a href="#">CS-211</a>
+    <a href="#">CS-212</a>
+    <a href="#">CS-213</a>
+    <a href="#">CS-214</a>
+</div>
+<button class="dropdown-btn">SEM 4
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">BS-222</a>
+    <a href="#">CS-221</a>
+    <a href="#">CS-222</a>
+    <a href="#">CS-224</a>
+    <a href="#">CS-225</a>
+    <a href="#">EC-228</a>
+</div>
+<button class="dropdown-btn">SEM 5
+<i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">CS-311</a>
+    <a href="#">CS-312</a>
+    <a href="#">CS-313</a>
+    <a href="#">CS-314</a>
+    <a href="#">CS-315</a>
+    <a href="#">EC-319</a>
+</div>
+<button class="dropdown-btn">SEM 6
+<i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">CS-321</a>
+    <a href="#">CS-322</a>
+    <a href="#">CS-323</a>
+    <a href="#">CS-324</a>
+    <a href="#">CS-325</a>
+    <a href="#">CS-326</a>
+</div>
+<button class="dropdown-btn">SEM 7
+<i class="fa fa-caret-down"></i>
+  </button>
+<button class="dropdown-btn">SEM 8
+<i class="fa fa-caret-down"></i>
+  </button>
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;CODES</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+
+</script>
+
+</body>
+</html>
+
+ 

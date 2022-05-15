@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>RESULT</title>
+  <div class="topnav">
+  <a class="active" href="{% url 'jb' %}">HOME</a>
+
+</div>
+
+<style>
+body {
+  margin: 0;
+}
+.sub{
+  button {
+    padding:0; 
+    margin:0;
+    border:0;
+    background-color:transparent;
+}
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+.button{
+  padding: 15px 32px;
+   margin: 4px 2px;
+  font-size: 16px;
+background-color: #008CBA;
+  border: none;
+  color: white;
+  text-decoration: none;
+
+}
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+table{
+border-collapse: 
+collapse; border-spacing: 0; 
+border-color: #000000 ;
+border-width: 2px;
+height:100px;
+}
+td, th {  
+    height: 30px; 
+    border-width: 2px;
+
+}
+tr:nth-child(1) td { background: #F1F1F1; }   
+ td {  
+    text-align: center;
+}
+th {  
+    background: #DFDFDF;  
+    font-weight: bold;
+}
+
+
+</style>
+
+</head>
+<body>
+  <br>
+<center>
+<table border="1">
+    <tr>
+      <th>Enrollment Number</th>
+      <th>SEMESTER</th>
+      <th>SGPA</th>
+      <th>OGPA</th>
+    </tr>
+    {% for result in E %}
+    {% if result.eno == EN %}
+    <tr>
+      <td>{{result.eno}}</td>
+      <td>{{result.sem}}</td>
+      <td>{{result.SGPA}}</td>
+      <td>{{result.OGPA}}</td>
+  </tr>
+    {% endif %}
+   {% endfor %}
+    
+</table>
+</center>
+</body>
+</html>
+
+
+
+
+

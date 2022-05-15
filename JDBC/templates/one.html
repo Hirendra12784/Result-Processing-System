@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+  <title>jdbc</title>
+</head>
+<body>
+<div class="topnav">
+    <a class="active" href="{% url 'marks' %} "style="float: right">MARKS</a>
+    <a class="active" href="{% url 'jb' %} "style="float: left">HOME</a>
+
+</div>
+  <style>
+body {
+  margin: 0;
+}
+.button{
+  padding: 15px 32px;
+   margin: 4px 2px;
+  font-size: 16px;
+background-color: #008CBA;
+  border: none;
+  color: white;
+  text-decoration: none;
+
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+.topnav a {
+  left:50 px;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+table{
+border-collapse: 
+collapse; border-spacing: 0; 
+border-color: #000000 ;
+border-width: 2px;
+height:10px;
+}
+td, th {  
+    height: 30px; 
+    border-width: 2px;
+
+}
+ td {  
+    text-align: center;
+}
+th {  
+    background: #DFDFDF;  
+    font-weight: bold;
+}
+
+</style>
+
+  <center>
+
+    
+<br>
+
+
+   <table id="table_row_total" border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Roll No</th> 
+      <th>Batch</th>
+      <th>Semester</th>
+      <th>Enrollment Number</th>
+      <th>Course Number</th>
+      <th>Credit </th>
+      <th>MidTerm Marks</th>
+      <th>Theory Marks</th>
+      <th>Practical Marks</th>
+      <th>Grade Point</th>
+      <th>Credit Point</th>
+    </tr>
+  </thead>
+    {% for res in E %}
+
+    <tbody>
+    <tr>
+      <td>{{res.id}}</td>
+      <td>{{res.roll_no}}</td>
+      <td>{{res.batch}}</td>
+      <td>{{res.sem}}</td>
+      <td>{{res.eno}}</td>
+      <td>{{res.course_no.course_code}}</td>
+      <td>{{res.credit_total}}</td>
+      <td>{{res.midterm_marks}}</td>
+      <td>{{res.theory_marks}}</td>
+      <td>{{res.practical_marks}}</td>
+      <td>{{res.grade_point}}</td>
+      <td>{{res.credit_points}}</td>
+      <td><button class="button"><a href="delt/{{res.id}}" onclick="return confirm('Are you Sure you want to Delete?')" style="color:white;text-decoration: none;">DELETE</td></button></a>
+          
+    </tr>
+  </tbody>
+      {% endfor %}
+    </table>
+  </center>
+</body>
+</html>
+

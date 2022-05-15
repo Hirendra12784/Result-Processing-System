@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+  <title>jdbc</title>
+</head>
+<body>
+  <style>
+table{
+border-collapse: 
+collapse; border-spacing: 0; 
+border-color: #000000 ;
+border-width: 2px;
+height:100px;
+}
+td, th {  
+    height: 30px; 
+    border-width: 2px;
+}
+td {  
+    text-align: center;
+}
+</style>
+
+
+  <center>
+    <form method="POST">
+      {% csrf_token %}
+      <br>
+   <table border="1">
+    <tr>
+      <th>Name</th>
+      <th><input type="Name"placeholder="Enter Name"name="student_name"></td>
+    </tr>
+    <tr>
+      <th>Father Name</th>
+      <th><input type="Name"placeholder="Enter Name"name="father_name"></td>
+    </tr>
+    <tr>
+      <th>Mother Name</th>
+      <th><input type="Name"placeholder="Enter Name"name="mother_name"></td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <th><input type="Name" placeholder="Enter address" name="address"></th>
+    </tr>
+    <tr>
+      <th>Enrollment Number</th>
+      <th><input type="text" placeholder="Enter enrollment number" name="eno"></th>
+    </tr>
+    <tr>
+      <th>Birth Date</th>
+      <th><input type="Date" placeholder="Enter Birth Date" name="bdate"></th>
+    </tr>
+    <tr>
+      <th>Gmail</th>
+      <th><input type="email" placeholder="Enter Gmail Id" name="email"></th>
+    </tr>
+    <tr>
+      <th>Gender</th>
+      <th><input type="radio"name="gender" value="Male">Male <input type="radio" name="gender" value="Female">Female <input type="radio" name="gender"value="other">Other</th>
+    </tr>
+    <tr>
+      <th>Department</th>
+      <th><input type="Name" placeholder="Enter Department" name="dno"></th>
+    </tr>
+    <tr>
+  <td><input type="submit"  value="Add"/> </td>
+  <td>   {% if messages %}
+       {% for mess in messages %}
+       <b style="color:green;">{{mess}}</b>
+       {% endfor %}
+       {% endif %}</td>
+ </tr>
+    </tr>
+  </table>
+  </form>
+  <br>
+  <button type="button">
+    <a href="{% url 'jb' %}"style="text-decoration:none;color:gray">SHOW</a>
+</button>
+  </center>
+</body>
+</html>
+

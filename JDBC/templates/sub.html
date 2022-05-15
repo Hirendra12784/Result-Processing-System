@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+  <title>jdbc</title>
+</head>
+<body>
+  <center>
+<!--    <button type="button">
+    <a href="{% url 'insert' %}" style="text-decoration:none;color:gray;">ADD</a>
+</button> -->
+<!--<form method="post" action="{% url 'insert' %}">
+<button type='submit'>Start</button>
+</form> -->
+<div class="topnav">
+  <a class="active" href="{% url 'jb' %}">HOME</a>
+</div>
+
+<style>
+body {
+  margin: 0;
+}
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+table{
+border-collapse: 
+collapse; border-spacing: 0; 
+border-color: #000000 ;
+border-width: 2px;
+height:100px;
+}
+td, th {  
+    height: 30px; 
+    border-width: 2px;
+
+}
+tr:nth-child(1) td { background: #F1F1F1; }   
+ td {  
+    text-align: center;
+}
+th {  
+    background: #DFDFDF;  
+    font-weight: bold;
+}
+
+</style>
+<br>
+<br>
+   
+   <table border="1">
+    <tr>
+      <th>Batch</th>
+      <th>Semester Number</th>
+      <th>Course Code</th>
+      <th>Course Name</th>
+      <th>Credit(T)</th>
+      <th>Credit(P)</th>
+      <th>Credits</th>
+      <th>Mid Term Marks</th>
+      <th>Theory Marks</th>
+<!--<th>Roll Num</th> -->
+      <th>Practical Marks</th>
+    </tr>
+    {% for result in sub %}
+    <tr>
+      <td>{{result.batch}}</td>
+      <td>{{result.sem_no}}</td>
+      <td>{{result.course_code}}</td>
+      <td>{{result.course_name}}</td>
+      <td>{{result.credit_theory}}</td>
+      <td>{{result.credit_practical}}</td>
+      <td>{{result.credit}}</td>
+      <td>{{result.mid_marks}}</td>
+      <td>{{result.th_marks}}</td>
+ <!--     <td>{{result.rno}}</td> -->
+      <td>{{result.pract_marks}}</td>      
+    </tr>
+    {% endfor %}
+  </table>
+  </center>
+</body>
+</html>
+

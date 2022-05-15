@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+  <title>jdbc</title>
+</head>
+<body>
+
+  <style>
+table{
+border-collapse: 
+collapse; border-spacing: 0; 
+border-color: #000000 ;
+border-width: 2px;
+height:100px;
+}
+td, th {  
+    height: 30px; 
+    border-width: 2px;
+}
+td {  
+    text-align: center;
+}
+</style>
+
+
+
+  <center>
+    <form method="POST" action="/update/{{Student.id}}">
+    {% csrf_token %}
+    <br>
+    <br>
+  <table border="1">
+    <tr>
+      <td>Id</td>
+      <td><input type="text" name="id" value="{{Student.id}}"readonly></td>
+    </tr>
+<tr>
+      <td>Name</td>
+      <td><input type="Name"name="student_name"value="{{Student.student_name}}"></td>
+    </tr>
+    <tr>
+    <td>Father Name</td>
+      <td><input type="Name"name="father_name"value="{{Student.father_name}}"></td>
+    </tr>
+    <tr>
+    <td>Mother Name</td>
+      <td><input type="Name"name="mother_name"value="{{Student.mother_name}}"></td>
+    </tr>
+    <tr>
+    <td>Address</td>
+      <td><input type="Name"name="address"value="{{Student.address}}"></td>
+    </tr>
+    <tr>
+    <td>Enrollment Number</td>
+      <td><input type="text"name="eno"value="{{Student.eno}}"></td>
+    </tr>
+    <tr>
+    <td>Birth Date</td>
+      <td><input type="Date"name="bdate"value="{{Student.bdate}}"></td>
+    </tr>
+    <tr>
+    <td>Gmail</td>
+      <td><input type="email"name="email"value="{{Student.email}}"></td>
+    </tr>
+    
+    <tr>
+    <td>Gender</td>
+      <td><input type="Name"name="gender"value="{{Student.gender}}"></td>
+    </tr>
+    <tr>
+    <td>Department</td>
+      <td><input type="Name"name="dno"value="{{Student.dno}}"></td>
+    </tr>
+    <tr>
+
+      <td><input type="submit"value="update"></td>
+      <td>
+        {% if messages %}
+        {% for mess in messages %}
+        <b style="color:green;">{{mess}}</b>
+        {% endfor %}
+        {% endif %}
+      </td>
+    </tr>
+  </table>
+  <br>
+  <button type="button">
+    <a href="{% url 'jb' %}"style="text-decoration:none;color:gray">SHOW</a>
+  </button>
+  <button>
+<a href="{% url 'insert' %}" style="text-decoration:none;color:gray;">HOME</a>
+</button>
+</form>
+  </center>
+</body>
+</html>
+
+
+
+
+
+

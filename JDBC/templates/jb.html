@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<head>
+  <title>jdbc</title>
+</head>
+<body>
+  <center>
+<!--    <button type="button">
+    <a href="{% url 'insert' %}" style="text-decoration:none;color:gray;">ADD</a>
+</button> -->
+<!--<form method="post" action="{% url 'insert' %}">
+<button type='submit'>Start</button>
+</form> -->
+<div class="topnav">
+  <a class="active" href="{% url 'insert' %}">INSERT</a>
+  <a class="active" href="{% url 'sub' %}">SUBJECT</a>
+  <a class="active"  href="{% url 'logout' %}"style="float: right;">LOGOUT</a>
+
+</div>
+
+<style>
+body {
+  margin: 0;
+}
+.sub{
+  button {
+    padding:0; 
+    margin:0;
+    border:0;
+    background-color:transparent;
+}
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+.button{
+  padding: 15px 32px;
+   margin: 4px 2px;
+  font-size: 22px;
+background-color: #008CBA;
+  border: none;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+table{
+border-collapse: 
+collapse; border-spacing: 0; 
+border-color: #000000 ;
+border-width: 2px;
+height:100px;
+}
+td, th {  
+    height: 30px; 
+    border-width: 2px;
+
+}
+tr:nth-child(1) td { background: #F1F1F1; }   
+ td {  
+    text-align: center;
+}
+th {  
+    background: #DFDFDF;  
+    font-weight: bold;
+}
+
+
+</style>
+<br>
+<br>
+   
+   <table border="1">
+    <tr>
+      <th>Id</th> 
+      <th>Student Name</th>
+      <th>Father Name</th>
+      <th>Mother Name</th>
+      <th>Address</th>
+      <th>Enrollment Number</th>
+      <th>Birth Date</th>
+      <th>Gmail</th>
+<!--<th>Roll Num</th> -->
+      <th>Gender</th>
+      <th>Department</th>
+      <th colspan="5"></th>
+    </tr>
+    {% for result in data %}
+    <tr>
+      <td>{{result.id}}</td>
+      <td>{{result.student_name}}</td>
+      <td>{{result.father_name}}</td>
+      <td>{{result.mother_name}}</td>
+      <td>{{result.address}}</td>
+      <td>{{result.eno}}</td>
+      <td>{{result.bdate}}</td>
+      <td>{{result.email}}</td>
+ <!--     <td>{{result.rno}}</td> -->
+      <td>{{result.gender}}</td>
+      <td>{{result.dno}}</td>
+      <td><a href="edit/{{result.id}}" style="background-color:#008CBA;color:white;text-decoration:none;padding: 2px 2px;margin: 0;font-size: 20px;border-radius: 10px;">UPDATE</td></a> <td>
+          <a href="dele/{{result.id}}" onclick="return confirm('Are you Sure you want to Delete?')" style="color:white;padding:2px 3px;text-decoration: none;font-size:20px;border-radius:10px;background-color:#008CBA;">DELETE</td></a></td>
+          
+      <td>
+      <form action='' method="POST">
+      {% csrf_token %}
+      <input type="hidden" name="mar" value="{{result.eno}}">       
+      <input type="submit" style="background-color:#008CBA; color: white;padding:2px 2px;font-size:18px; margin:0;"name="mark" value="MARKS"> 
+     </form></td>
+      <td>
+      <form action='/one/' method="POST">
+      {% csrf_token %}
+      <input type="hidden" name="show" value="{{result.eno}}">       
+      <input type="submit" style="background-color:#008CBA;font-size: 18px; color: white;padding:2px 2px; margin:0;"name="shw" value="SHOW(M)">  
+     </form></td>
+     <td>
+      <form action='/result/' method="POST">
+      {% csrf_token %}
+      <input type="hidden" name="resu" value="{{result.eno}}">       
+      <input type="submit" style="background-color:#008CBA;font-size: 18px; color: white;padding:2px 2px; margin:0;"name="reslt" value="RESULT">  
+     </form></td>
+   </tr>
+     
+    {% endfor %}
+  </table>
+  </center>
+</body>
+</html>
+
